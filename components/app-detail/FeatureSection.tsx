@@ -10,7 +10,7 @@ export function FeatureSection({ app }: FeatureSectionProps) {
   const renderTimelineVisual = (visual: Extract<AppFeatureVisual, { kind: "timeline" }>) => {
     return (
       <div
-        className="relative overflow-hidden rounded-[1.8rem] border p-6 sm:p-8"
+        className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[1.8rem] border p-4 sm:p-6 md:p-8"
         style={{
           background:
             "linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(249,247,255,0.94) 100%)",
@@ -26,7 +26,7 @@ export function FeatureSection({ app }: FeatureSectionProps) {
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-sm font-medium text-gray-400">{visual.label}</p>
-              <h4 className="mt-3 text-[1.45rem] font-semibold tracking-[-0.03em] text-gray-950">
+              <h4 className="mt-2 sm:mt-3 text-lg sm:text-xl lg:text-[1.45rem] font-semibold tracking-[-0.03em] text-gray-950">
                 {visual.title}
               </h4>
             </div>
@@ -41,7 +41,7 @@ export function FeatureSection({ app }: FeatureSectionProps) {
             </div>
           </div>
 
-          <div className="mt-8 rounded-[1.5rem] border bg-white/88 p-5 sm:p-6">
+          <div className="mt-6 sm:mt-8 rounded-[1.25rem] sm:rounded-[1.5rem] border bg-white/88 p-4 sm:p-5 md:p-6">
             <div className="rounded-[1.25rem] border border-gray-100 bg-[#171b2a] p-4 shadow-inner">
               <div className="flex items-center gap-2">
                 <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
@@ -67,8 +67,8 @@ export function FeatureSection({ app }: FeatureSectionProps) {
                 ))}
               </div>
 
-              <div className="mt-5 flex items-center justify-between gap-3 overflow-hidden rounded-[1rem] border border-white/10 bg-white/5 px-4 py-3">
-                <div className="flex gap-2">
+              <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-[1rem] border border-white/10 bg-white/5 px-4 py-3">
+                <div className="flex flex-wrap gap-2">
                   {visual.chips.map((chip) => (
                     <span
                       key={chip}
@@ -92,7 +92,7 @@ export function FeatureSection({ app }: FeatureSectionProps) {
   const renderGradingVisual = (visual: Extract<AppFeatureVisual, { kind: "grading" }>) => {
     return (
       <div
-        className="relative overflow-hidden rounded-[1.8rem] border p-6 sm:p-8"
+        className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[1.8rem] border p-4 sm:p-6 md:p-8"
         style={{
           background:
             "linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(255,247,244,0.94) 100%)",
@@ -108,7 +108,7 @@ export function FeatureSection({ app }: FeatureSectionProps) {
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-sm font-medium text-gray-400">{visual.label}</p>
-              <h4 className="mt-3 text-[1.45rem] font-semibold tracking-[-0.03em] text-gray-950">
+              <h4 className="mt-2 sm:mt-3 text-lg sm:text-xl lg:text-[1.45rem] font-semibold tracking-[-0.03em] text-gray-950">
                 {visual.title}
               </h4>
             </div>
@@ -123,8 +123,8 @@ export function FeatureSection({ app }: FeatureSectionProps) {
             </div>
           </div>
 
-          <div className="mt-8 rounded-[1.5rem] border bg-white/88 p-5 sm:p-6">
-            <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="mt-6 sm:mt-8 rounded-[1.25rem] sm:rounded-[1.5rem] border bg-white/88 p-4 sm:p-5 md:p-6">
+            <div className="grid gap-4 sm:gap-5 lg:grid-cols-[0.92fr_1.08fr]">
               <div className="rounded-[1.2rem] border border-gray-100 bg-white p-4">
                 <div className="grid grid-cols-4 gap-3">
                   {visual.swatches.map((swatch) => (
@@ -142,7 +142,7 @@ export function FeatureSection({ app }: FeatureSectionProps) {
                 </div>
               </div>
 
-              <div className="space-y-4 rounded-[1.2rem] border border-gray-100 bg-white p-4">
+              <div className="space-y-3 sm:space-y-4 rounded-[1rem] sm:rounded-[1.2rem] border border-gray-100 bg-white p-3 sm:p-4">
                 {visual.sliders.map((slider) => (
                   <div key={slider.label}>
                     <div className="mb-2 flex items-center justify-between gap-3">
@@ -179,7 +179,7 @@ export function FeatureSection({ app }: FeatureSectionProps) {
   const renderEqualizerVisual = (visual: Extract<AppFeatureVisual, { kind: "equalizer" }>) => {
     return (
       <div
-        className="relative overflow-hidden rounded-[1.8rem] border p-6 sm:p-8"
+        className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[1.8rem] border p-4 sm:p-6 md:p-8"
         style={{
           background:
             "linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(247,250,245,0.92) 100%)",
@@ -197,7 +197,7 @@ export function FeatureSection({ app }: FeatureSectionProps) {
               <p className="text-sm font-medium text-gray-400">
                 {visual.label}
               </p>
-              <h4 className="mt-3 text-[1.45rem] font-semibold tracking-[-0.03em] text-gray-950">
+              <h4 className="mt-2 sm:mt-3 text-lg sm:text-xl lg:text-[1.45rem] font-semibold tracking-[-0.03em] text-gray-950">
                 {visual.title}
               </h4>
             </div>
@@ -212,7 +212,7 @@ export function FeatureSection({ app }: FeatureSectionProps) {
             </div>
           </div>
 
-          <div className="mt-8 rounded-[1.5rem] border bg-white/88 p-5 sm:p-6">
+          <div className="mt-6 sm:mt-8 rounded-[1.25rem] sm:rounded-[1.5rem] border bg-white/88 p-4 sm:p-5 md:p-6">
             <div className="flex items-end justify-between gap-2 sm:gap-3">
               {visual.bands.map((height, index) => (
                 <div key={index} className="flex flex-1 flex-col items-center gap-3">
@@ -257,7 +257,7 @@ export function FeatureSection({ app }: FeatureSectionProps) {
   const renderLibraryVisual = (visual: Extract<AppFeatureVisual, { kind: "library" }>) => {
     return (
       <div
-        className="relative overflow-hidden rounded-[1.8rem] border p-6 sm:p-8"
+        className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[1.8rem] border p-4 sm:p-6 md:p-8"
         style={{
           background:
             "linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(247,250,245,0.92) 100%)",
@@ -275,7 +275,7 @@ export function FeatureSection({ app }: FeatureSectionProps) {
               <p className="text-sm font-medium text-gray-400">
                 {visual.label}
               </p>
-              <h4 className="mt-3 text-[1.45rem] font-semibold tracking-[-0.03em] text-gray-950">
+              <h4 className="mt-2 sm:mt-3 text-lg sm:text-xl lg:text-[1.45rem] font-semibold tracking-[-0.03em] text-gray-950">
                 {visual.title}
               </h4>
             </div>
@@ -290,8 +290,8 @@ export function FeatureSection({ app }: FeatureSectionProps) {
             </div>
           </div>
 
-          <div className="mt-8 rounded-[1.5rem] border bg-white/88 p-5 sm:p-6">
-            <div className="grid gap-3 sm:grid-cols-3">
+          <div className="mt-6 sm:mt-8 rounded-[1.25rem] sm:rounded-[1.5rem] border bg-white/88 p-4 sm:p-5 md:p-6">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {visual.collections.map((playlist) => (
                 <div
                   key={playlist.title}
@@ -372,18 +372,18 @@ export function FeatureSection({ app }: FeatureSectionProps) {
 
     return (
       <div
-        className="relative flex min-h-[340px] items-center justify-center overflow-hidden rounded-[1.8rem] border p-8"
+        className="relative flex min-h-[280px] sm:min-h-[320px] lg:min-h-[340px] items-center justify-center overflow-hidden rounded-[1.5rem] sm:rounded-[1.8rem] border p-4 sm:p-6 lg:p-8"
         style={{
           backgroundImage: app.theme.accentGrad,
           borderColor: app.theme.surfaceBorder,
         }}
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.22),transparent_62%)]" />
-        <div className="relative w-full max-w-sm rounded-[1.8rem] bg-white/92 p-7 shadow-[0_20px_60px_rgba(15,23,42,0.18)]">
-          <h4 className="text-3xl font-semibold tracking-[-0.03em] text-gray-950">
+        <div className="relative w-full max-w-sm rounded-[1.5rem] sm:rounded-[1.8rem] bg-white/92 p-5 sm:p-6 lg:p-7 shadow-[0_20px_60px_rgba(15,23,42,0.18)]">
+          <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-[-0.03em] text-gray-950">
             {feature.headline}
           </h4>
-          <p className="mt-4 text-sm leading-6 text-gray-600">
+          <p className="mt-3 sm:mt-4 text-sm leading-6 text-gray-600">
             {feature.description}
           </p>
           {feature.pills?.length ? (
@@ -408,11 +408,11 @@ export function FeatureSection({ app }: FeatureSectionProps) {
   };
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-16 sm:py-20 lg:py-24 bg-white">
       <div className="mx-auto max-w-[1440px] px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
-        <div className="max-w-2xl mb-16">
+        <div className="mb-10 max-w-2xl text-center sm:mb-14 sm:text-left lg:mb-16">
           <SectionLabel>Key Features</SectionLabel>
-          <h2 className="mt-4 text-[clamp(2.1rem,3.8vw,3.2rem)] font-bold text-gray-950 leading-[0.98] tracking-[-0.04em]">
+          <h2 className="mt-3 sm:mt-4 text-[clamp(1.5rem,4vw,2.5rem)] sm:text-[clamp(1.75rem,4vw,2.75rem)] lg:text-[clamp(2.1rem,3.8vw,3.2rem)] font-bold text-gray-950 leading-[0.98] tracking-[-0.04em]">
             Powerful features, presented clearly.
           </h2>
           <p className="mt-4 max-w-lg text-body-md leading-relaxed text-gray-600">
@@ -420,12 +420,12 @@ export function FeatureSection({ app }: FeatureSectionProps) {
           </p>
         </div>
 
-        <div className="space-y-10">
+        <div className="space-y-6 sm:space-y-8 lg:space-y-10">
           {app.features.map((feature, index) => {
             return (
               <div
                 key={feature.headline}
-                className="rounded-[2.2rem] p-6 md:p-8 lg:p-10"
+                className="rounded-[1.6rem] sm:rounded-[2rem] lg:rounded-[2.2rem] p-4 sm:p-6 md:p-8 lg:p-10"
                 style={{
                   backgroundImage:
                     index % 2 === 0
@@ -435,14 +435,14 @@ export function FeatureSection({ app }: FeatureSectionProps) {
                 }}
               >
                 <div
-                  className={`grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] ${
+                  className={`grid items-start gap-6 sm:gap-8 lg:gap-10 lg:grid-cols-[0.92fr_1.08fr] ${
                     index % 2 === 1 ? "lg:[&>div:first-child]:order-last" : ""
                   }`}
                 >
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-6">
                   <div className="inline-flex items-center gap-3">
                     <span
-                      className="inline-flex h-11 w-11 items-center justify-center rounded-full text-sm font-semibold"
+                      className="inline-flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold sm:h-11 sm:w-11"
                       style={{
                         background: app.theme.accentGrad,
                         color: "#ffffff",
@@ -452,19 +452,19 @@ export function FeatureSection({ app }: FeatureSectionProps) {
                     </span>
                   </div>
 
-                  <h3 className="text-[clamp(1.55rem,2.4vw,2.35rem)] font-bold text-gray-950 tracking-[-0.03em]">
+                  <h3 className="text-[clamp(1.35rem,5vw,2.35rem)] font-bold text-gray-950 tracking-[-0.03em]">
                     {feature.headline}
                   </h3>
-                  <p className="max-w-md text-body-md leading-relaxed text-gray-600">
+                  <p className="max-w-md text-sm leading-7 text-gray-600 sm:text-body-md">
                     {feature.description}
                   </p>
 
                   {feature.pills && feature.pills.length > 0 ? (
-                    <div className="flex flex-wrap gap-3 pt-1">
+                    <div className="flex flex-wrap gap-2.5 pt-1">
                       {feature.pills.map((pill) => (
                         <span
                           key={pill}
-                          className="rounded-full border px-4 py-2 text-sm font-medium"
+                          className="rounded-full border px-3 py-1.5 text-xs font-medium sm:px-4 sm:py-2 sm:text-sm"
                           style={{
                             backgroundColor: "rgba(255,255,255,0.72)",
                             color: app.accent,

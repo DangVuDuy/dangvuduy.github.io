@@ -17,7 +17,7 @@ export function ScreenshotGallery({ app }: ScreenshotGalleryProps) {
 
   return (
     <section
-      className="relative overflow-hidden py-24"
+      className="relative overflow-hidden py-16 sm:py-20 lg:py-24"
       style={{ backgroundImage: app.theme.galleryBackground }}
     >
       <div
@@ -28,7 +28,7 @@ export function ScreenshotGallery({ app }: ScreenshotGalleryProps) {
       <div className="relative mx-auto max-w-[1440px] px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <div className="max-w-2xl">
           <SectionLabel>Screenshots</SectionLabel>
-          <h2 className="mt-4 text-[clamp(2.1rem,3.8vw,3.2rem)] font-bold text-white leading-[0.98] tracking-[-0.04em]">
+          <h2 className="mt-3 sm:mt-4 text-[clamp(1.5rem,4vw,2.5rem)] sm:text-[clamp(1.75rem,4vw,2.75rem)] lg:text-[clamp(2.1rem,3.8vw,3.2rem)] font-bold text-white leading-[0.98] tracking-[-0.04em]">
             {app.gallery.title}
           </h2>
           <p className="mt-4 max-w-xl text-body-md leading-relaxed text-white/70">
@@ -37,7 +37,7 @@ export function ScreenshotGallery({ app }: ScreenshotGalleryProps) {
         </div>
 
         <div
-          className="mt-12 rounded-[2.6rem] border p-5 sm:p-7 lg:p-9"
+          className="mt-8 sm:mt-12 rounded-[2rem] sm:rounded-[2.6rem] border p-4 sm:p-5 md:p-7 lg:p-9"
           style={{
             backgroundColor: "rgba(255,255,255,0.08)",
             borderColor: app.theme.surfaceBorder,
@@ -45,7 +45,7 @@ export function ScreenshotGallery({ app }: ScreenshotGalleryProps) {
           }}
         >
           <div
-            className="relative overflow-hidden rounded-[2.2rem] border p-4 sm:p-6"
+            className="relative overflow-hidden rounded-[1.75rem] sm:rounded-[2.2rem] border p-3 sm:p-4 md:p-6"
             style={{
               background:
                 "linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%)",
@@ -58,7 +58,7 @@ export function ScreenshotGallery({ app }: ScreenshotGalleryProps) {
             />
 
             <div
-              className={`relative hidden md:min-h-[720px] md:items-center md:gap-6 lg:gap-8 ${
+              className={`relative hidden md:min-h-[680px] md:items-center md:gap-6 lg:min-h-[720px] lg:gap-8 ${
                 !hasSupportingShots
                   ? "md:flex md:justify-center"
                   : useTwoColumnDesktop
@@ -117,21 +117,22 @@ export function ScreenshotGallery({ app }: ScreenshotGalleryProps) {
               ) : null}
             </div>
 
-            <div className="relative md:hidden">
+            <div className="relative mx-auto max-w-[340px] md:hidden">
               <ThemedShowcaseFrame
                 app={app}
                 src={featuredShot}
                 alt={`${app.name} featured screenshot`}
                 width={290}
                 height={620}
-                frameWidth="min(100%, 290px)"
-                radiusClassName="rounded-[2rem]"
-                imageRadiusClassName="rounded-[1.45rem]"
+                frameWidth="min(100%, 280px)"
+                frameWidthMobile="min(100%, 246px)"
+                radiusClassName="rounded-[1.75rem] sm:rounded-[2rem]"
+                imageRadiusClassName="rounded-[1.25rem] sm:rounded-[1.45rem]"
                 className="mx-auto"
               />
 
               {hasSupportingShots ? (
-                <div className="mt-4 grid grid-cols-2 gap-3">
+                <div className="mx-auto mt-4 grid max-w-[320px] grid-cols-2 gap-3">
                   {supportingShots.map((screenshot) => (
                     <ThemedShowcaseFrame
                       key={screenshot}
@@ -140,9 +141,10 @@ export function ScreenshotGallery({ app }: ScreenshotGalleryProps) {
                       alt={`${app.name} supporting screenshot`}
                       width={156}
                       height={330}
-                      frameWidth="100%"
-                      radiusClassName="rounded-[1.35rem]"
-                      imageRadiusClassName="rounded-[1rem]"
+                      frameWidth="min(100%, 148px)"
+                      radiusClassName="rounded-[1.1rem] sm:rounded-[1.35rem]"
+                      imageRadiusClassName="rounded-[0.85rem] sm:rounded-[1rem]"
+                      className="mx-auto"
                     />
                   ))}
                 </div>

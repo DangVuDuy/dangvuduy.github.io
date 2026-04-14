@@ -6,6 +6,9 @@ interface StoreButtonGroupProps {
   trackingContext: string;
   primaryLabel?: string;
   useStoreNamesWhenMultiple?: boolean;
+  stackOnMobile?: boolean;
+  fullWidthOnMobile?: boolean;
+  buttonClassName?: string;
   className?: string;
 }
 
@@ -14,14 +17,22 @@ export function StoreButtonGroup({
   trackingContext,
   primaryLabel,
   useStoreNamesWhenMultiple = true,
+  stackOnMobile = false,
+  fullWidthOnMobile = false,
+  buttonClassName = "",
   className = "",
 }: StoreButtonGroupProps) {
   if (stores.length === 0) {
     return null;
   }
 
+  const layoutClassName = stackOnMobile
+    ? "flex-col sm:flex-row sm:flex-wrap"
+    : "flex-wrap";
+  const responsiveButtonClassName = fullWidthOnMobile ? "w-full sm:w-auto" : "";
+
   return (
-    <div className={`flex flex-wrap gap-3 ${className}`.trim()}>
+    <div className={`flex gap-3 ${layoutClassName} ${className}`.trim()}>
       {stores.map((store) => {
         const label =
           stores.length > 1 && useStoreNamesWhenMultiple
@@ -36,6 +47,7 @@ export function StoreButtonGroup({
             storeId={store.id}
             trackingContext={trackingContext}
             trackingLabel={`${trackingContext}:${store.id}:${label}`}
+            className={`${responsiveButtonClassName} ${buttonClassName}`.trim()}
           />
         );
       })}

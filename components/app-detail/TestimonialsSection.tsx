@@ -9,13 +9,13 @@ export function TestimonialsSection({ app }: TestimonialsSectionProps) {
 
   return (
     <section
-      className="py-24"
+      className="py-16 sm:py-20 lg:py-24"
       style={{ backgroundImage: app.theme.surface }}
     >
       <div className="mx-auto max-w-[1440px] px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-label text-gray-500">User Signals</p>
-          <h2 className="mt-4 text-[clamp(2.1rem,3.8vw,3.2rem)] font-bold text-gray-950 leading-[0.98] tracking-[-0.04em]">
+          <h2 className="mt-3 sm:mt-4 text-[clamp(1.5rem,4vw,2.5rem)] sm:text-[clamp(1.75rem,4vw,2.75rem)] lg:text-[clamp(2.1rem,3.8vw,3.2rem)] font-bold text-gray-950 leading-[0.98] tracking-[-0.04em]">
             Why people keep using {app.name}.
           </h2>
           <p className="mt-4 text-body-md leading-relaxed text-gray-600">
@@ -23,11 +23,11 @@ export function TestimonialsSection({ app }: TestimonialsSectionProps) {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-8 grid gap-4 sm:mt-12 sm:grid-cols-2 xl:grid-cols-4">
           {app.testimonials.map((testimonial) => (
             <div
               key={`${testimonial.author}-${testimonial.quote}`}
-              className="rounded-[1.75rem] bg-white/82 p-6"
+              className="rounded-[1.5rem] sm:rounded-[1.75rem] bg-white/82 p-4 sm:p-6"
               style={{
                 border: `1px solid ${app.theme.surfaceBorder}`,
                 boxShadow: `0 18px 44px ${app.theme.accentGlow}`,
@@ -35,7 +35,7 @@ export function TestimonialsSection({ app }: TestimonialsSectionProps) {
             >
               <div className="flex items-center gap-3">
                 <div
-                  className="flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold text-white"
+                  className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full text-xs sm:text-sm font-semibold text-white"
                   style={{ backgroundImage: app.theme.accentGrad }}
                 >
                   {testimonial.author.charAt(0)}
@@ -57,7 +57,7 @@ export function TestimonialsSection({ app }: TestimonialsSectionProps) {
                 ))}
               </div>
 
-              <p className="mt-4 text-sm leading-6 text-gray-600">
+              <p className="mt-4 text-sm leading-6 text-gray-600 sm:text-[0.95rem]">
                 {testimonial.quote}
               </p>
             </div>

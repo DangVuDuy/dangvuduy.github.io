@@ -68,7 +68,11 @@ export function Navbar() {
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-[calc(env(safe-area-inset-top,0px)+0.75rem)] sm:px-6 lg:px-8">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[calc(env(safe-area-inset-top,0px)+1.75rem)] bg-[linear-gradient(to_top,rgba(255,255,255,0)_0%,rgba(255,255,255,0.1)_44%,rgba(255,255,255,0.28)_100%)] backdrop-blur-[16px] [mask-image:linear-gradient(to_top,transparent_0%,rgba(0,0,0,0.7)_44%,black_100%)] md:hidden"
+      />
       <div className="mx-auto max-w-[1440px]">
         <div className="rounded-[1.75rem] border border-white/60 bg-white/78 px-4 shadow-[0_18px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl sm:px-6">
           <div className="flex min-h-[72px] items-center justify-between gap-4">
