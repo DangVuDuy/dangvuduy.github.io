@@ -68,9 +68,9 @@ export function AppHero({ app }: AppHeroProps) {
               {app.heroSub}
             </p>
 
-            <div className="flex flex-col gap-4 sm:gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div className="flex flex-col gap-4 sm:items-start sm:gap-5">
               <div
-                className="grid w-full grid-cols-2 gap-2 rounded-[1.45rem] p-2.5 backdrop-blur-xl sm:w-auto sm:gap-3 sm:rounded-[1.75rem] sm:p-3"
+                className="grid w-full grid-cols-2 gap-2 rounded-[1.45rem] p-2.5 backdrop-blur-xl sm:w-fit sm:gap-3 sm:rounded-[1.75rem] sm:p-3"
                 style={{
                   border: `1px solid ${app.theme.surfaceBorder}`,
                   backgroundImage: `linear-gradient(135deg, rgba(255,255,255,0.24) 0%, ${app.theme.surfaceStrong} 100%)`,
@@ -128,7 +128,7 @@ export function AppHero({ app }: AppHeroProps) {
                 primaryLabel={primaryStore?.actionLabel}
                 stackOnMobile
                 fullWidthOnMobile
-                className="w-full lg:w-auto"
+                className="w-full sm:w-auto"
                 buttonClassName="min-h-[58px] justify-between rounded-[1.25rem] border border-white/18 bg-[linear-gradient(135deg,rgba(17,24,39,0.96)_0%,rgba(27,34,57,0.92)_100%)] px-5 py-4 text-[0.95rem] shadow-[0_18px_44px_rgba(15,23,42,0.22)] backdrop-blur-md hover:bg-[linear-gradient(135deg,rgba(17,24,39,0.98)_0%,rgba(34,42,69,0.96)_100%)] hover:shadow-[0_22px_54px_rgba(15,23,42,0.26)] sm:min-h-0 sm:justify-center sm:rounded-full sm:px-4 sm:py-2.5 sm:text-sm sm:shadow-button sm:hover:shadow-button-hover"
               />
             </div>
