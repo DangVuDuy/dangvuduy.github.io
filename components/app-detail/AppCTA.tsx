@@ -54,7 +54,7 @@ export function AppCTA({ app }: AppCTAProps) {
                   fullWidthOnMobile
                 />
               </div>
-              {showPrivacyLink || showTermsLink ? (
+              {showPrivacyLink || showTermsLink || app.id === "cloud-music" ? (
                 <div className="mt-5 flex flex-wrap items-center justify-center gap-4 text-sm lg:justify-start">
                   {showPrivacyLink ? (
                     <Link
@@ -70,6 +70,14 @@ export function AppCTA({ app }: AppCTAProps) {
                       className="font-medium text-gray-950 transition-colors hover:text-gray-700"
                     >
                       Terms of service →
+                    </Link>
+                  ) : null}
+                  {app.id === "cloud-music" ? (
+                    <Link
+                      href="/apps/cloud-music/delete-account"
+                      className="font-medium text-gray-950 transition-colors hover:text-gray-700"
+                    >
+                      Disconnect accounts and delete data →
                     </Link>
                   ) : null}
                 </div>
