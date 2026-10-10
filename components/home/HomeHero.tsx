@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AppData } from "../../lib/apps";
-import { AppStoreButton } from "../ui/AppStoreButton";
+import { StoreButtonGroup } from "../ui/StoreButtonGroup";
 
 interface HomeHeroProps {
   apps: AppData[];
@@ -19,7 +19,6 @@ export function HomeHero({ apps }: HomeHeroProps) {
     featuredApp.hero.showcase[1] ?? featuredApp.screenshots[0] ?? featuredApp.heroMockup,
     featuredApp.hero.showcase[2] ?? featuredApp.screenshots[1] ?? featuredApp.heroMockup,
   ];
-  const primaryStore = featuredApp.stores[0];
 
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f6f7f3_0%,#fbfbfd_48%,#ffffff_100%)] pt-24 pb-12 lg:pt-28 lg:pb-14">
@@ -59,24 +58,12 @@ export function HomeHero({ apps }: HomeHeroProps) {
               </span>
             </div>
 
-            <div className="flex flex-wrap gap-3.5">
-              <Link
-                href={featuredApp.href}
-                className="inline-flex items-center justify-center rounded-full bg-gray-950 px-6 py-3 text-sm font-medium text-white shadow-[0_18px_40px_rgba(15,23,42,0.14)] transition-transform hover:-translate-y-0.5"
-              >
-                View {featuredApp.name}
-              </Link>
-              {primaryStore ? (
-                <AppStoreButton
-                  url={primaryStore.url}
-                  label={primaryStore.actionLabel}
-                  storeId={primaryStore.id}
-                  trackingContext={`home-hero:${featuredApp.id}`}
-                  trackingLabel={`home-hero:${featuredApp.id}:${primaryStore.id}`}
-                  className="border border-gray-200 bg-white px-6 py-3 !text-gray-700 shadow-none hover:border-gray-300 hover:bg-white hover:!text-gray-950"
-                />
-              ) : null}
-            </div>
+            <StoreButtonGroup
+              stores={featuredApp.stores}
+              trackingContext={`home-hero:${featuredApp.id}`}
+              className="gap-3.5"
+              buttonClassName="px-6 py-3 shadow-[0_18px_40px_rgba(15,23,42,0.14)] transition-transform hover:-translate-y-0.5"
+            />
           </div>
 
           <div className="relative">
