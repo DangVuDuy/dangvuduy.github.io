@@ -53,6 +53,13 @@ export function AboutSection({
                 </Link>
               ))}
             </div>
+
+            <Link
+              href="/about"
+              className="mt-6 inline-flex text-sm font-medium text-gray-950 transition-transform hover:translate-x-0.5"
+            >
+              About CloudLab →
+            </Link>
           </div>
 
           <StatCard

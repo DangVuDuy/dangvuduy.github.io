@@ -9,6 +9,7 @@ const appsHref = { pathname: "/", hash: "apps" };
 
 const navigation = [
   { href: appsHref, label: "Apps" },
+  { href: "/about", label: "About" },
   { href: "/faq", label: "FAQ" },
   { href: "/privacy", label: "Privacy" },
 ];

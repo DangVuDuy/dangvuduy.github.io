@@ -19,6 +19,7 @@ const supportLinks = [
 ];
 
 const resourceLinks = [
+  { href: "/about", label: "About CloudLab" },
   { href: "/privacy", label: "Privacy policy" },
   { href: "/terms", label: "Terms of service" },
 ];
