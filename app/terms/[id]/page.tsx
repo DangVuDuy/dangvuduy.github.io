@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   appTermsEntries,
@@ -57,6 +58,11 @@ export default async function AppTermsPage({
           <p className="mt-5 text-base leading-8 text-gray-600 sm:text-lg">
             {policy.intro}
           </p>
+          {policy.lastUpdated ? (
+            <p className="mt-4 text-sm text-gray-500">
+              Last updated: {policy.lastUpdated}
+            </p>
+          ) : null}
         </div>
       </section>
 
@@ -86,6 +92,20 @@ export default async function AppTermsPage({
                       </li>
                     ))}
                   </ul>
+                ) : null}
+
+                {section.links?.length ? (
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    {section.links.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="inline-flex rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-medium text-gray-950 transition-colors hover:border-gray-300"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
                 ) : null}
               </section>
             ))}
