@@ -10,6 +10,12 @@ export type PrivacySection = {
   paragraphs?: string[];
   bullets?: string[];
   cards?: PrivacyCard[];
+  links?: PrivacyLink[];
+};
+
+export type PrivacyLink = {
+  label: string;
+  href: string;
 };
 
 export type AppPrivacyPolicy = {
@@ -18,6 +24,7 @@ export type AppPrivacyPolicy = {
   summary: string;
   intro: string;
   heroDescription?: string;
+  lastUpdated?: string;
   sections: PrivacySection[];
 };
 
@@ -34,42 +41,119 @@ export const appPrivacyPolicies: Record<string, AppPrivacyPolicy> = {
     id: "cloud-music",
     title: "Cloud Music Privacy Policy",
     summary:
-      "Read-only cloud import policy for Google Drive and Dropbox, with local offline playback on the user’s device.",
+      "Cloud import policy for Google Drive, Dropbox, Box, OneDrive, and pCloud, with local offline playback on the user’s device.",
     intro:
-      "Cloud Music respects your privacy. This Privacy Policy explains how the application accesses, uses, and protects your data when you use the Cloud Music application.",
+      "Cloud Music respects your privacy. This Privacy Policy explains how the application accesses, uses, and protects your data when you use the Cloud Music application. Cloud Music lets you connect Google Drive, Dropbox, Box, OneDrive, and pCloud to import your own audio files for offline playback. Some features and services may vary by platform.",
     heroDescription:
       "How Cloud Music accesses, uses, and protects cloud audio files selected by the user for offline playback.",
+    lastUpdated: "October 26, 2026",
     sections: [
       {
         title: "Data Access",
         paragraphs: [
-          "Cloud Music accesses cloud storage data strictly in read-only mode and only when explicitly initiated by the user within the app.",
+          "Cloud Music only reads from your cloud storage, and only when explicitly initiated by the user within the app. For every provider, the app only lists your folders and files, downloads the files you choose to import, and reads basic account information (your email address and display name) so it can show which account is connected.",
+          "Files you choose to import are downloaded directly from the cloud provider to your device. Cloud Music never uploads, modifies, deletes, or syncs files in your cloud storage, and performs no background or automatic synchronization.",
         ],
         cards: [
           {
             title: "Google Drive",
             bullets: [
-              "Read-only access to files explicitly selected by the user",
+              "Read-only access (Google Drive read-only permission)",
+              "Used only to browse folders and download the files you choose to import",
               "No upload, modify, delete, or sync operations",
-              "Access is limited to the minimum necessary to provide offline audio playback",
             ],
           },
           {
             title: "Dropbox",
             bullets: [
-              "Read-only access to files explicitly selected by the user",
+              "Read-only access to account info, file metadata, and file content",
+              "Used only to browse folders and download the files you choose to import",
               "No upload, modify, delete, or sync operations",
+            ],
+          },
+          {
+            title: "Box",
+            bullets: [
+              "Box requires read/write authorization to download files",
+              "Cloud Music only lists and downloads files you choose and never modifies, uploads, or deletes files",
+              "Folder listings and download links are retrieved through our backend using your stored Box credentials (see Credentials)",
+            ],
+          },
+          {
+            title: "OneDrive",
+            bullets: [
+              "Read-only access (Files.Read and User.Read permissions)",
+              "Used only to browse folders and download the files you choose to import",
+              "No upload, modify, delete, or sync operations",
+            ],
+          },
+          {
+            title: "pCloud",
+            bullets: [
+              "pCloud does not offer read-only authorization, so the access token technically grants full account access",
+              "Cloud Music only lists and downloads files you choose and never modifies, uploads, or deletes files",
               "No background or automatic synchronization is performed",
             ],
           },
         ],
       },
       {
+        title: "Credentials",
+        bullets: [
+          "Google Drive: sign-in and access tokens are handled by Google’s sign-in services on your device. Cloud Music keeps only your account email and display name locally and does not send your credentials to CloudLab servers.",
+          "Dropbox, OneDrive, and pCloud: access tokens are kept in secure storage on your device and are not sent to CloudLab servers.",
+          "Box: sign-in is completed through our backend. To keep you signed in, your Box credentials are stored on our backend, linked to an anonymous app identifier rather than your name.",
+          "When you sign out of Box in the app, we request deletion of the stored Box credentials from our backend. You can also revoke Cloud Music’s access at any time from your Box account settings (Account Settings → Apps).",
+        ],
+      },
+      {
         title: "Data Usage and Storage",
         bullets: [
-          "No Google Drive or Dropbox data is stored on our servers",
+          "Your audio files are never stored on our servers. The only cloud-related data we store on our backend is the Box sign-in credentials described above",
           "Imported audio files are processed and stored locally on the user’s device for offline playback",
-          "We do not sell, rent, or share user data with third parties",
+          "If you enable clipboard detection, the app checks your clipboard on-device for a media link to pre-fill the URL field. Clipboard content is never stored or transmitted",
+          "We do not sell or rent your personal data, and we do not share it with third parties except the service providers described in this policy",
+        ],
+      },
+      {
+        title: "Purchases",
+        bullets: [
+          "Subscriptions are processed by Google Play or the Apple App Store; we do not receive your payment card details.",
+          "We receive purchase status to unlock Premium.",
+        ],
+      },
+      {
+        title: "Advertising and Analytics",
+        paragraphs: [
+          "Cloud Music uses the following Google services to show ads, understand app usage, and keep the app reliable. These services may collect device identifiers (such as the advertising ID), usage data, and diagnostic data in accordance with Google’s policies.",
+        ],
+        bullets: [
+          "Google AdMob: displays ads in the app. AdMob may use the advertising ID and usage data to deliver and measure ads, including personalized ads where permitted.",
+          "Consent: where required (for example in the EEA, UK, and Switzerland), the app asks for your consent through Google’s User Messaging Platform before personalized ads are shown.",
+          "Firebase Analytics: collects app usage statistics to help us improve the app.",
+          "Firebase Crashlytics (on Android): collects crash reports and device and app information to help us fix bugs.",
+          "Firebase Remote Config: delivers app configuration settings.",
+          "Firebase Cloud Messaging: we use Firebase Cloud Messaging to deliver notifications; Google assigns a device token for this purpose.",
+          "Firebase Authentication and Cloud Functions: used only for Box sign-in, through an anonymous identifier.",
+        ],
+        links: [
+          {
+            label: "Google Privacy Policy",
+            href: "https://policies.google.com/privacy",
+          },
+          {
+            label: "How Google uses information from sites or apps that use its services",
+            href: "https://policies.google.com/technologies/partner-sites",
+          },
+        ],
+      },
+      {
+        title: "Your Choices and Data Deletion",
+        bullets: [
+          "Sign out of any provider from the Cloud tab in the app. This removes that provider’s credentials from your device and, for Box, requests deletion of your stored credentials from our backend.",
+          "Revoke Cloud Music’s access at any time from your account settings on the provider’s website (Google, Dropbox, Box, Microsoft, or pCloud).",
+          "Uninstalling the app deletes all locally stored data, including imported audio files and stored credentials.",
+          "To request deletion of any data associated with you, contact us at support@cloudlab.one.",
         ],
       },
       {
@@ -78,8 +162,8 @@ export const appPrivacyPolicies: Record<string, AppPrivacyPolicy> = {
           "We take the protection of user data seriously and implement appropriate technical and organizational measures to safeguard sensitive information.",
         ],
         bullets: [
-          "All data transmitted between the application and third-party services (such as Google Drive and Dropbox) is encrypted in transit using HTTPS (TLS).",
-          "Authentication credentials and access tokens are stored securely on the user’s device and are not shared with third parties.",
+          "All data transmitted between the application and third-party services (such as Google Drive, Dropbox, Box, OneDrive, and pCloud) is encrypted in transit using HTTPS (TLS).",
+          "Authentication credentials and access tokens are stored securely, on your device or, for Box, on our secured backend, and are never sold or shared for advertising.",
           "Access to cloud storage data occurs only when the user explicitly initiates an action within the app.",
           "Data access is limited to the minimum necessary to provide the app’s core functionality.",
           "Access to internal systems and source code is restricted to authorized personnel only.",

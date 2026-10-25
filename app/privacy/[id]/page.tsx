@@ -57,6 +57,11 @@ export default async function AppPrivacyPage({
           <p className="mt-5 text-base leading-8 text-gray-600 sm:text-lg">
             {policy.heroDescription ?? policy.summary}
           </p>
+          {policy.lastUpdated ? (
+            <p className="mt-4 text-sm text-gray-500">
+              Last updated: {policy.lastUpdated}
+            </p>
+          ) : null}
         </div>
       </section>
 
@@ -79,6 +84,7 @@ export default async function AppPrivacyPage({
                 paragraphs={section.paragraphs}
                 bullets={section.bullets}
                 cards={section.cards}
+                links={section.links}
               />
             ))}
 
@@ -111,11 +117,13 @@ function PolicySection({
   paragraphs,
   bullets,
   cards,
+  links,
 }: {
   title: string;
   paragraphs?: string[];
   bullets?: string[];
   cards?: Array<{ title: string; bullets: string[] }>;
+  links?: Array<{ label: string; href: string }>;
 }) {
   return (
     <section>
@@ -155,6 +163,22 @@ function PolicySection({
             <PolicyBullet key={bullet} text={bullet} />
           ))}
         </ul>
+      ) : null}
+
+      {links?.length ? (
+        <div className="mt-6 flex flex-wrap gap-3">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-medium text-gray-950 transition-colors hover:border-gray-300"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
       ) : null}
     </section>
   );
