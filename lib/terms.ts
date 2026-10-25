@@ -4,6 +4,12 @@ export type TermsSection = {
   title: string;
   paragraphs?: string[];
   bullets?: string[];
+  links?: TermsLink[];
+};
+
+export type TermsLink = {
+  label: string;
+  href: string;
 };
 
 export type AppTermsPolicy = {
@@ -11,6 +17,7 @@ export type AppTermsPolicy = {
   title: string;
   summary: string;
   intro: string;
+  lastUpdated?: string;
   sections: TermsSection[];
 };
 
@@ -19,25 +26,28 @@ export const appTermsPolicies: Record<string, AppTermsPolicy> = {
     id: "cloud-music",
     title: "Cloud Music Terms of Service",
     summary:
-      "Terms covering read-only access to user-selected cloud audio files, third-party storage integrations, and user responsibilities.",
+      "Terms covering access to user-selected cloud audio files, third-party storage integrations, subscriptions, and user responsibilities.",
     intro:
       "By using the Cloud Music application, you agree to these Terms of Service. If you do not agree with these terms, please do not use the application.",
+    lastUpdated: "October 26, 2026",
     sections: [
       {
         title: "Service Description",
         paragraphs: [
-          "Cloud Music is a mobile application that allows users to browse and play audio files stored in their own cloud storage accounts, including Google Drive and Dropbox.",
+          "Cloud Music is a mobile application that allows users to browse and play audio files stored in their own cloud storage accounts, including Google Drive, Dropbox, Box, OneDrive, and pCloud. Some features and services may vary by platform.",
         ],
       },
       {
         title: "User Data and Permissions",
         paragraphs: [
-          "Cloud Music accesses cloud storage data in read-only mode and only reads files explicitly selected by the user for playback.",
+          "Cloud Music only reads from your cloud storage, and only when you initiate an action in the app. It lists your folders and files and downloads the files you choose to import for offline playback.",
         ],
         bullets: [
+          "Google Drive, Dropbox, and OneDrive are accessed with read-only permissions.",
+          "Box requires read/write authorization to download files, and pCloud does not offer read-only authorization. For these providers, Cloud Music only lists and downloads files you choose.",
           "No files are uploaded, modified, deleted, or synchronized.",
           "No background access to cloud storage is performed.",
-          "No cloud data is stored on Cloud Music servers.",
+          "Your audio files are never stored on our servers. To keep you signed in to Box, your Box credentials are stored on our backend, as described in our Privacy Policy.",
         ],
       },
       {
@@ -49,7 +59,29 @@ export const appTermsPolicies: Record<string, AppTermsPolicy> = {
       {
         title: "Third-Party Services",
         paragraphs: [
-          "Cloud Music integrates with third-party services such as Google Drive and Dropbox. Use of those services is subject to their respective terms and policies.",
+          "Cloud Music integrates with third-party services such as Google Drive, Dropbox, Box, OneDrive, pCloud, Google AdMob, and Firebase. Use of those services is subject to their respective terms and policies.",
+        ],
+      },
+      {
+        title: "Subscriptions (Cloud Music Premium)",
+        bullets: [
+          "Premium is an auto-renewing monthly subscription (product com.duydv.cloudmusicpro) that removes ads and unlocks lossless playback (FLAC/WAV) and the equalizer.",
+          "A free trial may be offered; if so, the subscription starts automatically when the trial ends unless cancelled at least 24 hours before the trial ends.",
+          "Payment is charged to your Google Play or Apple ID account. The subscription renews automatically unless cancelled at least 24 hours before the end of the current period.",
+          "You can manage or cancel your subscription in Google Play (Play Store → Payments & subscriptions) or in your Apple ID settings (Settings → Apple ID → Subscriptions). Uninstalling the app does not cancel your subscription.",
+          "Refunds are handled by Google Play or Apple under their respective refund policies.",
+        ],
+      },
+      {
+        title: "Privacy",
+        paragraphs: [
+          "Your use of Cloud Music is also governed by our Privacy Policy, which explains how the app accesses, uses, and protects your data.",
+        ],
+        links: [
+          {
+            label: "Cloud Music Privacy Policy",
+            href: "/privacy/cloud-music",
+          },
         ],
       },
       {
